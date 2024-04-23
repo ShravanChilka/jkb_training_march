@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:widget_introduction/screens/popular_screen/coffee.dart';
-import 'package:widget_introduction/screens/popular_screen/widgets/coffee_list_tile.dart';
+import 'package:jkb_training_march/screens/popular_screen/coffee.dart';
+import 'package:jkb_training_march/screens/popular_screen/widgets/coffee_list_tile.dart';
 
 const List<Coffee> coffeeList = [
   Coffee(

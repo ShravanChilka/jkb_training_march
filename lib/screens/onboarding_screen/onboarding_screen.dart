@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
-import 'package:widget_introduction/screens/onboarding_screen/widgets/coffee_image_widget.dart';
-import 'package:widget_introduction/screens/onboarding_screen/widgets/get_started_button.dart';
-import 'package:widget_introduction/screens/onboarding_screen/widgets/image_gradient_widget.dart';
-import 'package:widget_introduction/screens/onboarding_screen/widgets/skip_button.dart';
+import 'package:jkb_training_march/screens/onboarding_screen/widgets/coffee_image_widget.dart';
+import 'package:jkb_training_march/screens/onboarding_screen/widgets/get_started_button.dart';
+import 'package:jkb_training_march/screens/onboarding_screen/widgets/skip_button.dart';
 
 class OnboardingScreen extends StatelessWidget {
   const OnboardingScreen({super.key});

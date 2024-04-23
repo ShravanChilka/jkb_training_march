@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:widget_introduction/screens/popular_screen/coffee.dart';
+import 'package:jkb_training_march/screens/popular_screen/coffee.dart';
 
 class CoffeeListTile extends StatelessWidget {
   const CoffeeListTile({

@@ -1,7 +1,7 @@
 import 'dart:developer';
 
 import 'package:flutter/material.dart';
-import 'package:widget_introduction/widgets/color_tile.dart';
+import 'package:jkb_training_march/widgets/color_tile.dart';
 
 final List<int> numbers = List.generate(200, (index) => index + 1);
 

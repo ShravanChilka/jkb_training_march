@@ -1,4 +1,4 @@
-package com.example.widget_introduction
+package com.example.jkb_training_march
 
 import io.flutter.embedding.android.FlutterActivity
 
