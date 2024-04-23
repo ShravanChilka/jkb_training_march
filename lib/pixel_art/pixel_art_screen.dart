@@ -1,8 +1,7 @@
 import 'dart:developer';
-
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:jkb_training_march/pixel_art/artworks.dart';
+import 'package:jkb_training_march/pixel_art/widgets/pixel_widget.dart';
 
 const totalRows = 24;
 const totalColumns = 24;
@@ -16,7 +15,6 @@ class PixelArtScreen extends StatefulWidget {
 
 class _PixelArtScreenState extends State<PixelArtScreen> {
   late List<Color?> pixels;
-
   late List<Color> palette;
   late Color selectedColor;
 
@@ -53,24 +51,14 @@ class _PixelArtScreenState extends State<PixelArtScreen> {
               crossAxisCount: totalRows,
             ),
             itemBuilder: (context, index) {
-              return InkWell(
+              return PixelWidget(
+                index: index,
+                color: pixels[index],
                 onTap: () {
                   setState(() {
                     pixels[index] = selectedColor;
                   });
-                  log(pixels.toString());
                 },
-                child: Ink(
-                  decoration: BoxDecoration(
-                    color: pixels[index],
-                    border: Border.all(
-                      width: duckArtPixels[index] != null ? 1 : 0.4,
-                      color: duckArtPixels[index] != null
-                          ? duckArtPixels[index]!
-                          : Colors.white10,
-                    ),
-                  ),
-                ),
               );
             },
           ),
@@ -109,5 +97,15 @@ class _PixelArtScreenState extends State<PixelArtScreen> {
         ],
       ),
     );
+  }
+
+  Color _getPixelBorderColor(int index) {
+    return duckArtPixels[index] != null
+        ? duckArtPixels[index]!
+        : Colors.white10;
+  }
+
+  double _getPixelBorderWidth(int index) {
+    return duckArtPixels[index] != null ? 1 : 0.4;
   }
 }
