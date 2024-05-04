@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:jkb_training_march/sign_in_screen.dart';
+import 'sign_in_screen.dart';
+import 'sign_up_screen.dart';
 
 void main() {
   runApp(
