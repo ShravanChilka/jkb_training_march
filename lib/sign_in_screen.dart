@@ -4,6 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:jkb_training_march/sign_up_screen.dart';
 
+final formKey = GlobalKey<FormState>();
+
 class SignInScreen extends StatefulWidget {
   const SignInScreen({super.key});
 
@@ -13,9 +15,11 @@ class SignInScreen extends StatefulWidget {
 
 class _SignInScreenState extends State<SignInScreen> {
   String userName = '';
-  final formKey = GlobalKey<FormState>();
   final userNameController = TextEditingController(text: '');
+  final emailController = TextEditingController(text: '');
   final passwordController = TextEditingController(text: '');
+
+  final emailRegex = RegExp(r'''^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$''');
 
   @override
   Widget build(BuildContext context) {
@@ -45,12 +49,31 @@ class _SignInScreenState extends State<SignInScreen> {
                       borderRadius: BorderRadius.circular(24),
                     ),
                   ),
-                  // autovalidateMode: AutovalidateMode.onUserInteraction,
-                  validator: (value) {
-                    if (value == null) return 'Enter username';
-                    if (value.isEmpty) return 'Enter username';
-                    if (value.length < 5) return 'Enter alteast 5 characters';
+                  validator: (text) {
+                    if (text == null) return 'Enter username';
+                    if (text.isEmpty) return 'Enter username';
+                    if (text.length < 5) return 'Enter alteast 5 characters';
                     return null;
+                  },
+                ),
+                const SizedBox(height: 24),
+                TextFormField(
+                  controller: emailController,
+                  cursorColor: Colors.red,
+                  decoration: InputDecoration(
+                    prefixIcon: const Icon(Icons.person),
+                    label: const Text('Email'),
+                    hintText: 'Enter email',
+                    fillColor: Colors.white10,
+                    filled: true,
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(24),
+                    ),
+                  ),
+                  validator: (text) {
+                    return emailRegex.hasMatch(text ?? '')
+                        ? null
+                        : 'Invalid email';
                   },
                 ),
                 const SizedBox(height: 24),
@@ -70,7 +93,6 @@ class _SignInScreenState extends State<SignInScreen> {
                       borderRadius: BorderRadius.circular(24),
                     ),
                   ),
-                  // autovalidateMode: AutovalidateMode.onUserInteraction,
                   validator: (value) {
                     if (value == null) return 'Enter username';
                     if (value.isEmpty) return 'Enter username';
@@ -82,9 +104,14 @@ class _SignInScreenState extends State<SignInScreen> {
                 Center(
                   child: FilledButton(
                     onPressed: () {
-                      final isValid = formKey.currentState?.validate();
+                      final isValid = formKey.currentState?.validate() ?? false;
                       if (isValid == true) {
-                        log('valid');
+                        final email = emailController.text;
+                        final userName = userNameController.text;
+                        final password = passwordController.text;
+                        log('email : $email');
+                        log('userName : $userName');
+                        log('password : $password');
                       } else {
                         log('invalid');
                       }
