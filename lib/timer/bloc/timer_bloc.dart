@@ -10,10 +10,6 @@ part 'timer_state.dart';
 const _durationOfTimer = 60;
 
 class TimerBloc extends Bloc<TimerEvent, TimerState> {
-  final _ticker = const Ticker();
-
-  StreamSubscription<int>? _tickerSubscription;
-
   TimerBloc()
       : super(
           const TimerStateInitial(
@@ -26,6 +22,10 @@ class TimerBloc extends Bloc<TimerEvent, TimerState> {
     on<TimerEventResumed>(_onTimerEventResumed);
     on<TimerEventReset>(_onTimerEventReset);
   }
+
+  final _ticker = const Ticker();
+
+  StreamSubscription<int>? _tickerSubscription;
 
   FutureOr<void> _onTimerEventStarted(
     TimerEventStarted event,
