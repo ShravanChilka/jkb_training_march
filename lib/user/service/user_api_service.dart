@@ -1,4 +1,3 @@
-import 'dart:convert';
 import 'dart:developer';
 
 import 'package:http/http.dart';
@@ -11,9 +10,9 @@ class UserApiService {
     final response = await client.post(
       Uri.parse('https://reqres.in/api/login'),
       body: {
-        "username": "string",
-        "email": "string",
-        "password": "string",
+        'username': 'string',
+        'email': 'string',
+        'password': 'string',
       },
     );
     log(response.body.toString());

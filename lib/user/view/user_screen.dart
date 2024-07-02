@@ -18,15 +18,8 @@ class UserScreen extends StatelessWidget {
               context.read<UserBloc>().add(
                     UserEventGetUsers(),
                   );
-              context.read<UserBloc>().add(
-                    const UserEventLogin(
-                      userName: 'Sairaj',
-                      email: 'sairaj@gmail.com',
-                      password: 'sairaj@123',
-                    ),
-                  );
             },
-            icon: Icon(Icons.download),
+            icon: const Icon(Icons.download),
           )
         ],
       ),
