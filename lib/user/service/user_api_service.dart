@@ -1,7 +1,7 @@
 import 'dart:developer';
 
 import 'package:http/http.dart';
-import 'package:jkb_training_march/user/model/get_user_response_model.dart';
+import '../model/get_user_response_model.dart';
 
 class UserApiService {
   final Client client = Client();

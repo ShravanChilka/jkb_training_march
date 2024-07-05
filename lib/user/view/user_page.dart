@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:jkb_training_march/user/bloc/user_bloc.dart';
+import '../bloc/user_bloc.dart';
 
 import 'user_screen.dart';
 

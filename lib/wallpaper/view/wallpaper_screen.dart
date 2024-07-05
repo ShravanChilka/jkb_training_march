@@ -2,10 +2,10 @@ import 'dart:developer';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:jkb_training_march/wallpaper/bloc/wallpaper_bloc.dart';
-import 'package:jkb_training_march/wallpaper/bloc/wallpaper_event.dart';
-import 'package:jkb_training_march/wallpaper/bloc/wallpaper_state.dart';
-import 'package:jkb_training_march/wallpaper/view/wallpaper_full_screen_view.dart';
+import '../bloc/wallpaper_bloc.dart';
+import '../bloc/wallpaper_event.dart';
+import '../bloc/wallpaper_state.dart';
+import 'wallpaper_full_screen_view.dart';
 
 class WallpaperScreen extends StatefulWidget {
   const WallpaperScreen({super.key});

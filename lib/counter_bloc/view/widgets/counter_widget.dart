@@ -2,8 +2,8 @@ import 'dart:developer';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:jkb_training_march/counter_bloc/bloc/counter_bloc.dart';
-import 'package:jkb_training_march/counter_bloc/bloc/counter_state.dart';
+import '../../bloc/counter_bloc.dart';
+import '../../bloc/counter_state.dart';
 
 class CounterWidget extends StatelessWidget {
   const CounterWidget({

@@ -2,7 +2,7 @@ import 'dart:async';
 
 import 'package:equatable/equatable.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:jkb_training_march/timer/ticker.dart';
+import '../ticker.dart';
 
 part 'timer_event.dart';
 part 'timer_state.dart';

@@ -1,9 +1,9 @@
 import 'dart:async';
 
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:jkb_training_march/wallpaper/bloc/wallpaper_event.dart';
-import 'package:jkb_training_march/wallpaper/bloc/wallpaper_state.dart';
-import 'package:jkb_training_march/wallpaper/service/wallpaper_api_service.dart';
+import 'wallpaper_event.dart';
+import 'wallpaper_state.dart';
+import '../service/wallpaper_api_service.dart';
 
 class WallpaperBloc extends Bloc<WallpaperEvent, WallpaperState> {
   WallpaperBloc()

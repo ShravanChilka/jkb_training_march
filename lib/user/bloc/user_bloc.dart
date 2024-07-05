@@ -1,9 +1,9 @@
 import 'dart:async';
 
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:jkb_training_march/user/bloc/user_event.dart';
-import 'package:jkb_training_march/user/bloc/user_state.dart';
-import 'package:jkb_training_march/user/service/user_api_service.dart';
+import 'user_event.dart';
+import 'user_state.dart';
+import '../service/user_api_service.dart';
 
 class UserBloc extends Bloc<UserEvent, UserState> {
   UserBloc() : super(const UserState(users: [])) {

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:jkb_training_march/theme/view/theme_toggle_button.dart';
-import 'package:jkb_training_march/timer/view/widgets/timer_text_widget.dart';
+import '../../theme/view/theme_toggle_button.dart';
+import 'widgets/timer_text_widget.dart';
 
 import '../../theme/view/theme_color_widget.dart';
 import 'widgets/action_button_widget.dart';

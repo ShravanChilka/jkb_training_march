@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:jkb_training_march/counter_bloc/view/widgets/counter_increment_button.dart';
-import 'package:jkb_training_march/counter_bloc/view/widgets/counter_widget.dart';
+import 'widgets/counter_increment_button.dart';
+import 'widgets/counter_widget.dart';
 
 class CounterBlocNewScreen extends StatelessWidget {
   const CounterBlocNewScreen({super.key});

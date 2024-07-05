@@ -2,8 +2,8 @@ import 'dart:developer';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:jkb_training_march/theme/bloc/theme_bloc.dart';
-import 'package:jkb_training_march/theme/bloc/theme_event.dart';
+import '../bloc/theme_bloc.dart';
+import '../bloc/theme_event.dart';
 
 const List<Color> colors = [
   Colors.red,

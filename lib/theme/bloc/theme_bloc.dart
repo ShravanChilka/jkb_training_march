@@ -1,9 +1,7 @@
 import 'dart:async';
-import 'dart:math';
-
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:jkb_training_march/theme/bloc/theme_event.dart';
-import 'package:jkb_training_march/theme/bloc/theme_state.dart';
+import 'theme_event.dart';
+import 'theme_state.dart';
 
 class ThemeBloc extends Bloc<ThemeEvent, ThemeState> {
   ThemeBloc(super.initialState) {

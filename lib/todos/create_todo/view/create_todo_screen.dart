@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:jkb_training_march/todos/shared/show_snack_bar.dart';
+import '../../shared/show_snack_bar.dart';
 import '../bloc/create_todo_bloc.dart';
 import '../bloc/create_todo_event.dart';
 import '../bloc/create_todo_state.dart';

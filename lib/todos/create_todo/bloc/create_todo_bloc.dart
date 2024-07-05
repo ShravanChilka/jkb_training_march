@@ -2,10 +2,10 @@ import 'dart:async';
 import 'dart:developer';
 
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:jkb_training_march/todos/core/local_database.dart';
-import 'package:jkb_training_march/todos/create_todo/bloc/create_todo_event.dart';
-import 'package:jkb_training_march/todos/create_todo/bloc/create_todo_state.dart';
-import 'package:jkb_training_march/todos/model/todo_model.dart';
+import '../../core/local_database.dart';
+import 'create_todo_event.dart';
+import 'create_todo_state.dart';
+import '../../model/todo_model.dart';
 
 class CreateTodoBloc extends Bloc<CreateTodoEvent, CreateTodoState> {
   CreateTodoBloc()

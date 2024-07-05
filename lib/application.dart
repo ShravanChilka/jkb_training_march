@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:jkb_training_march/todos/home/view/home_screen.dart';
+import 'todos/home/view/home_screen.dart';
 
 final scaffoldMessengerKey = GlobalKey<ScaffoldMessengerState>();
 

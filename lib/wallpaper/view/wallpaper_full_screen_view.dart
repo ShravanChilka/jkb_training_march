@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:jkb_training_march/wallpaper/model/wallpaper_model.dart';
+import '../model/wallpaper_model.dart';
 
 class WallpaperFullScreenView extends StatelessWidget {
   const WallpaperFullScreenView({

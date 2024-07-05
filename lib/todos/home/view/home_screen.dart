@@ -1,8 +1,7 @@
 import 'dart:developer';
 
 import 'package:flutter/material.dart';
-import 'package:jkb_training_march/todos/create_todo/view/create_todo_page.dart';
-import 'package:jkb_training_march/todos/create_todo/view/create_todo_screen.dart';
+import '../../create_todo/view/create_todo_page.dart';
 
 import '../../all_todos/view/all_todos_screen.dart';
 import '../../todo_stats/view/todo_stats_screen.dart';

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:jkb_training_march/user/bloc/user_bloc.dart';
-import 'package:jkb_training_march/user/bloc/user_event.dart';
-import 'package:jkb_training_march/user/bloc/user_state.dart';
+import '../bloc/user_bloc.dart';
+import '../bloc/user_event.dart';
+import '../bloc/user_state.dart';
 
 class UserScreen extends StatelessWidget {
   const UserScreen({super.key});

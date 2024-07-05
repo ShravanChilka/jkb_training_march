@@ -1,7 +1,7 @@
 import 'dart:developer';
 
 import 'package:http/http.dart';
-import 'package:jkb_training_march/wallpaper/model/get_wallpaper_response_model.dart';
+import '../model/get_wallpaper_response_model.dart';
 
 // https://api.pexels.com/v1/search?query=nature&per_page=1
 
