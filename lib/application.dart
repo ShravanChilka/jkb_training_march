@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'counter_bloc/view/counter_bloc_page.dart';
 import 'todos/home/view/home_screen.dart';
 
 final scaffoldMessengerKey = GlobalKey<ScaffoldMessengerState>();
@@ -13,7 +14,7 @@ class Application extends StatelessWidget {
       theme: ThemeData.dark(
         useMaterial3: true,
       ),
-      home: const HomeScreen(),
+      home: const CounterBlocPage(),
     );
   }
 }

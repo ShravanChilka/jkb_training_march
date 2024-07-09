@@ -9,8 +9,19 @@ import 'counter_bloc_new_screen.dart';
 import 'widgets/counter_increment_button.dart';
 import 'widgets/counter_widget.dart';
 
-class CounterBlocScreen extends StatelessWidget {
+class CounterBlocScreen extends StatefulWidget {
   const CounterBlocScreen({super.key});
+
+  @override
+  State<CounterBlocScreen> createState() => _CounterBlocScreenState();
+}
+
+class _CounterBlocScreenState extends State<CounterBlocScreen> {
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    context.read<CounterBloc>().add(CounterEventLoad());
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -18,11 +29,31 @@ class CounterBlocScreen extends StatelessWidget {
     return Scaffold(
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          Navigator.of(context).push(
-            MaterialPageRoute(
-              builder: (context) => const CounterBlocNewScreen(),
-            ),
-          );
+          showDialog<int>(
+            context: context,
+            builder: (context) {
+              return Center(
+                child: FilledButton(
+                  onPressed: () {
+                    Navigator.of(context).pop(100);
+                  },
+                  child: const Text('Return hello'),
+                ),
+              );
+            },
+          ).then((result) {
+            if (result != null) {
+              context.read<CounterBloc>().add(
+                    CounterEventSet(counter: result),
+                  );
+            }
+          });
+
+          // Navigator.of(context).push(
+          //   MaterialPageRoute(
+          //     builder: (context) => const CounterBlocNewScreen(),
+          //   ),
+          // );
         },
       ),
       appBar: AppBar(
