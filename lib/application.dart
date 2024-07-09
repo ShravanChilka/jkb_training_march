@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'global_provider.dart';
 import 'todos/home/view/home_screen.dart';
 
 final scaffoldMessengerKey = GlobalKey<ScaffoldMessengerState>();
@@ -8,12 +9,14 @@ class Application extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      scaffoldMessengerKey: scaffoldMessengerKey,
-      theme: ThemeData.dark(
-        useMaterial3: true,
+    return GlobalProvider(
+      child: MaterialApp(
+        scaffoldMessengerKey: scaffoldMessengerKey,
+        theme: ThemeData.dark(
+          useMaterial3: true,
+        ),
+        home: const HomeScreen(),
       ),
-      home: const HomeScreen(),
     );
   }
 }

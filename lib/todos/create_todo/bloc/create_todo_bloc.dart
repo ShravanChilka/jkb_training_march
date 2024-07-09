@@ -1,18 +1,18 @@
 import 'dart:async';
-import 'dart:developer';
 
 import 'package:flutter_bloc/flutter_bloc.dart';
-import '../../core/local_database.dart';
-import 'create_todo_event.dart';
-import 'create_todo_state.dart';
+import '../../core/todo_local_database.dart';
 import '../../model/todo_model.dart';
+
+part 'create_todo_event.dart';
+part 'create_todo_state.dart';
 
 class CreateTodoBloc extends Bloc<CreateTodoEvent, CreateTodoState> {
   CreateTodoBloc()
       : super(const CreateTodoState(status: CreateTodoStatus.initial)) {
     on<CreateTodoEventSave>(_onCreateTodoEventSave);
+    on<CreateTodoEventUpdate>(_onCreateTodoEventUpdate);
   }
-  final _localDatabase = LocalDatabase();
 
   FutureOr<void> _onCreateTodoEventSave(
     CreateTodoEventSave event,
@@ -30,13 +30,28 @@ class CreateTodoBloc extends Bloc<CreateTodoEvent, CreateTodoState> {
       isCompleted: false,
       createdAt: DateTime.now(),
     );
-    await Future.delayed(const Duration(seconds: 2));
-    final response = await _localDatabase.database.insert(
-      LocalDatabase.tableName,
-      todoModel.toMap(),
+    await TodoLocalDatabase.instance.add(todoModel);
+    emit(
+      const CreateTodoState(
+        status: CreateTodoStatus.completed,
+      ),
     );
+  }
 
-    log('response : $response');
+  FutureOr<void> _onCreateTodoEventUpdate(
+    CreateTodoEventUpdate event,
+    Emitter<CreateTodoState> emit,
+  ) async {
+    emit(
+      const CreateTodoState(
+        status: CreateTodoStatus.loading,
+      ),
+    );
+    await TodoLocalDatabase.instance.update(
+      event.todoModel.copyWith(
+        updatedAt: DateTime.now(),
+      ),
+    );
     emit(
       const CreateTodoState(
         status: CreateTodoStatus.completed,

@@ -25,9 +25,11 @@ class _HomeScreenState extends State<HomeScreen> {
       floatingActionButton: selectedIndex == 0
           ? FloatingActionButton.extended(
               onPressed: () {
-                Navigator.of(context).push(MaterialPageRoute(
-                  builder: (context) => const CreateTodoPage(),
-                ));
+                Navigator.of(context).push(
+                  MaterialPageRoute(
+                    builder: (context) => const CreateTodoPage(),
+                  ),
+                );
               },
               icon: const Icon(Icons.add),
               label: const Text('Create Todo'),

@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'theme/bloc/theme_bloc.dart';
-import 'theme/bloc/theme_state.dart';
+import 'todos/all_todos/bloc/all_todo_bloc.dart';
 
 class GlobalProvider extends StatelessWidget {
   const GlobalProvider({
@@ -16,10 +15,8 @@ class GlobalProvider extends StatelessWidget {
     return MultiBlocProvider(
       providers: [
         BlocProvider(
-          create: (context) => ThemeBloc(
-            const ThemeState(isDarkMode: false),
-          ),
-        )
+          create: (context) => AllTodoBloc(),
+        ),
       ],
       child: child,
     );
