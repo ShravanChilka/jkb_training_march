@@ -9,7 +9,7 @@ part 'create_todo_state.dart';
 
 class CreateTodoBloc extends Bloc<CreateTodoEvent, CreateTodoState> {
   CreateTodoBloc()
-      : super(const CreateTodoState(status: CreateTodoStatus.initial)) {
+      : super(const CreateTodoStateAdd(status: CreateTodoStatus.initial)) {
     on<CreateTodoEventSave>(_onCreateTodoEventSave);
     on<CreateTodoEventUpdate>(_onCreateTodoEventUpdate);
   }
@@ -19,7 +19,7 @@ class CreateTodoBloc extends Bloc<CreateTodoEvent, CreateTodoState> {
     Emitter<CreateTodoState> emit,
   ) async {
     emit(
-      const CreateTodoState(
+      const CreateTodoStateAdd(
         status: CreateTodoStatus.loading,
       ),
     );
@@ -32,7 +32,7 @@ class CreateTodoBloc extends Bloc<CreateTodoEvent, CreateTodoState> {
     );
     await TodoLocalDatabase.instance.add(todoModel);
     emit(
-      const CreateTodoState(
+      const CreateTodoStateAdd(
         status: CreateTodoStatus.completed,
       ),
     );
@@ -43,7 +43,7 @@ class CreateTodoBloc extends Bloc<CreateTodoEvent, CreateTodoState> {
     Emitter<CreateTodoState> emit,
   ) async {
     emit(
-      const CreateTodoState(
+      const CreateTodoStateUpdate(
         status: CreateTodoStatus.loading,
       ),
     );
@@ -53,7 +53,7 @@ class CreateTodoBloc extends Bloc<CreateTodoEvent, CreateTodoState> {
       ),
     );
     emit(
-      const CreateTodoState(
+      const CreateTodoStateUpdate(
         status: CreateTodoStatus.completed,
       ),
     );

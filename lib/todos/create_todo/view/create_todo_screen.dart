@@ -36,7 +36,11 @@ class _CreateTodoScreenState extends State<CreateTodoScreen> {
         if (state.status == CreateTodoStatus.completed) {
           context.read<AllTodoBloc>().add(const AllTodoEventFetch());
           Navigator.of(context).pop();
-          showSnackbar('Todo created!');
+          if (state is CreateTodoStateAdd) {
+            showSnackbar('Todo created!');
+          } else {
+            showSnackbar('Todo updated!');
+          }
         }
       },
       builder: (context, state) {
@@ -64,13 +68,14 @@ class _CreateTodoScreenState extends State<CreateTodoScreen> {
                                 ),
                               ),
                             );
+                      } else {
+                        context.read<CreateTodoBloc>().add(
+                              CreateTodoEventSave(
+                                title: title,
+                                description: description,
+                              ),
+                            );
                       }
-                      context.read<CreateTodoBloc>().add(
-                            CreateTodoEventSave(
-                              title: title,
-                              description: description,
-                            ),
-                          );
                     }
                   },
                   icon: const Icon(Icons.save),

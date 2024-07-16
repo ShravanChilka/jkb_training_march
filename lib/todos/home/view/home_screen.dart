@@ -1,10 +1,14 @@
 import 'dart:developer';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import '../../all_todos/bloc/all_todo_bloc.dart';
+import '../../all_todos/model/todo_filter_type.dart';
 import '../../create_todo/view/create_todo_page.dart';
 
 import '../../all_todos/view/all_todos_screen.dart';
 import '../../todo_stats/view/todo_stats_screen.dart';
+import 'todo_search_deletegate.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -21,6 +25,34 @@ class _HomeScreenState extends State<HomeScreen> {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Todos'),
+        actions: [
+          IconButton(
+            onPressed: () {
+              showSearch(
+                context: context,
+                delegate: TodoSearchDeletegate(),
+              ).whenComplete(() {
+                context.read<AllTodoBloc>().add(const AllTodoEventFetch());
+              });
+            },
+            icon: const Icon(Icons.search),
+          ),
+          PopupMenuButton<TodoFilterType>(
+            onSelected: (todoFilterType) {
+              context.read<AllTodoBloc>().add(
+                    AllTodoEventFetch(todoFilterType: todoFilterType),
+                  );
+            },
+            itemBuilder: (context) {
+              return TodoFilterType.values.map((todoFilterType) {
+                return PopupMenuItem(
+                  value: todoFilterType,
+                  child: Text(todoFilterType.name),
+                );
+              }).toList();
+            },
+          )
+        ],
       ),
       floatingActionButton: selectedIndex == 0
           ? FloatingActionButton.extended(

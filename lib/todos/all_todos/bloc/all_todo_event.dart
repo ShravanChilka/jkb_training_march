@@ -5,5 +5,19 @@ abstract class AllTodoEvent {
 }
 
 class AllTodoEventFetch extends AllTodoEvent {
-  const AllTodoEventFetch();
+  const AllTodoEventFetch({
+    this.todoFilterType = TodoFilterType.all,
+    this.query = '',
+  });
+
+  final TodoFilterType todoFilterType;
+  final String query;
+}
+
+class AllTodoEventCompleteNotUncomplete extends AllTodoEvent {
+  const AllTodoEventCompleteNotUncomplete({
+    required this.todoModel,
+  });
+
+  final TodoModel todoModel;
 }
